@@ -22,9 +22,9 @@ export function calcAge(birthday: Date): number {
 
   // now, calculate full four years
 
-  const daysInFourYears = 126230400000
+  const msInFourYears = 126230400000
 
-  for (ageMs; ageMs > daysInFourYears; ageMs -= daysInFourYears) {
+  for (ageMs; ageMs > msInFourYears; ageMs -= msInFourYears) {
     ageYears += 4
   }
 
