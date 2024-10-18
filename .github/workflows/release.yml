@@ -19,7 +19,7 @@ jobs:
           node-version: lts/*
           registry-url: https://registry.npmjs.com
       - name: Install Deps
-        run: npm ci
+        run: npm i
       - name: Build
         run: npm run build
       - name: Publish to NPM
@@ -39,7 +39,7 @@ jobs:
         with:
           node-version-file: ./.nvmrc
       - name: Install Deps
-        run: npm ci
+        run: npm i
       - name: Build
         run: npm run build
       - name: Compress
