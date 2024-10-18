@@ -14,9 +14,11 @@
   "scripts": {
     "build": "tsc --listEmittedFiles",
     "format": "prettier ./src --write",
-    "format:check": "prettier ./src --check"
+    "format:check": "prettier ./src --check",
+    "bump": "bumpp"
   },
   "devDependencies": {
+    "bumpp": "^9.7.1",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3"
   }
