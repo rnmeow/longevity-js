@@ -1,0 +1,23 @@
+{
+  "name": "longevity-js",
+  "description": "A helper function that calculates one's age from his birthday.",
+  "type": "module",
+  "version": "0.0.0-dev",
+  "license": "MIT",
+  "author": "Connor Kuo <touch@rnmeow.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:rnmeow/longevity-js.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --listEmittedFiles",
+    "format": "prettier ./src --write",
+    "format:check": "prettier ./src --check"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  }
+}
