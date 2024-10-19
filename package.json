@@ -11,8 +11,12 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
+  },
   "scripts": {
-    "build": "tsc --listEmittedFiles",
+    "build": "tsup src/index.ts --format=esm,cjs --dts --sourcemap",
     "format": "prettier ./src --write",
     "format:check": "prettier ./src --check",
     "bump": "bumpp"
@@ -20,6 +24,7 @@
   "devDependencies": {
     "bumpp": "^9.7.1",
     "prettier": "^3.3.3",
+    "tsup": "^8.3.0",
     "typescript": "^5.6.3"
   }
 }
