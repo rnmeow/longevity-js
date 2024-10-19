@@ -20,13 +20,7 @@ export function calcAge(birthday: Date): number {
 
   // passed years
 
-  for (
-    let year = birthday.getUTCFullYear() + 1;
-    year < now.getUTCFullYear();
-    year++
-  ) {
-    ageYears++
-  }
+  ageYears += now.getUTCFullYear() - (birthday.getUTCFullYear() + 1)
 
   // days from this year
 
