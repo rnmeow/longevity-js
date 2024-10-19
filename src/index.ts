@@ -1,46 +1,42 @@
 const isLeapYear = (ceYear: number): boolean =>
   ceYear % 100 !== 0 || (ceYear % 100 === 0 && ceYear % 400 === 0)
 
-const getMsOfYear = (leapYear: boolean): number =>
-  leapYear ? 31622400000 : 31536000000
+const getMsOfYear = (ceYear: number): number =>
+  isLeapYear(ceYear) ? 31622400000 : 31536000000
 
 export function calcAge(birthday: Date): number {
-  let ageMs: number | null, ageYears: number
-
   const now = new Date()
 
-  const birthdayNewYear = new Date(birthday.getFullYear(), 0, 0)
-  const msOfBirthYear = getMsOfYear(isLeapYear(birthday.getFullYear()))
+  let ageYears: number
 
-  // calculate leftover days in the year of birth
+  // leftover days in the year of birth
 
-  const birthYearLeftMs =
-    msOfBirthYear - birthday.getTime() + birthdayNewYear.getTime()
+  const endOfBirthYear = new Date(
+    Date.UTC(birthday.getUTCFullYear(), 11, 31, 23, 59, 59, 999),
+  )
+  const birthYearLeftMs = endOfBirthYear.getTime() - birthday.getTime()
 
-  ageMs = now.getTime() - birthday.getTime() - birthYearLeftMs
-  ageYears = birthYearLeftMs / msOfBirthYear
+  ageYears = birthYearLeftMs / getMsOfYear(birthday.getUTCFullYear())
 
-  // now, calculate full four years
+  // passed years
 
-  const msInFourYears = 126230400000
-
-  for (ageMs; ageMs > msInFourYears; ageMs -= msInFourYears) {
-    ageYears += 4
-  }
-
-  // then, calculate leftover non-four-grouped years
-
-  while (ageMs > getMsOfYear(false)) {
-    const targYear = new Date(now.getTime() - ageMs).getFullYear()
-
-    ageMs -= getMsOfYear(isLeapYear(targYear))
+  for (
+    let year = birthday.getUTCFullYear() + 1;
+    year < now.getUTCFullYear();
+    year++
+  ) {
     ageYears++
   }
 
-  // finally, calculate last newly created days
+  // days from this year
 
-  ageYears += ageMs / getMsOfYear(isLeapYear(now.getFullYear()))
-  ageMs = null
+  const startOfThisYear = new Date(
+    Date.UTC(now.getUTCFullYear(), 0, 1, 0, 0, 0, 0),
+  )
+
+  ageYears +=
+    (now.getTime() - startOfThisYear.getTime()) /
+    getMsOfYear(now.getUTCFullYear())
 
   /*
    * Copyright (C) 2024 Connor Kuo, licensed under MIT.
