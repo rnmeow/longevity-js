@@ -2,7 +2,7 @@
   "name": "longevity-js",
   "description": "A helper function that calculates one's age according to their birthday.",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "author": "Connor Kuo <touch@rnmeow.com>",
   "repository": {
