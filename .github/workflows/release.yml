@@ -43,9 +43,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Compress
-        run: |
-          tar cvf longevity-js.tar dist
-          gzip longevity-js.tar
+        run: tar -czvf longevity-js_${{ github.ref_name }}.tgz dist
       - name: Generate Changelog
         run: npx changelogithub@0.13
         env:
@@ -54,4 +52,4 @@ jobs:
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: longevity-js.tar.gz
+          files: longevity-js_${{ github.ref_name }}.tgz
