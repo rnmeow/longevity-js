@@ -1,7 +1,7 @@
 longevity-js
 ============
 
-This is A helper function that calculates one's age according to their birthday.
+This is a helper function that calculates one's age according to their birthday.
 
 For development, use Node.js v20, newer or maintaining LTS versions.
 This package uses tsup for bundling.
