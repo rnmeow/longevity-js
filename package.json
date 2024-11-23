@@ -19,7 +19,7 @@
     "build": "tsup src/index.ts --format=esm,cjs --dts --sourcemap",
     "format": "prettier ./src --write",
     "format:check": "prettier ./src --check",
-    "bump": "bumpp"
+    "bump": "bumpp --sign"
   },
   "devDependencies": {
     "bumpp": "^9.7.1",
