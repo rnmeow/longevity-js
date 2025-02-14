@@ -21,7 +21,7 @@ to import as a CommonJS module.
 
 * License
 
-(C) 2024, Connor Kuo, licensed under MIT.
+(C) 2024, 2025, Yu-huan Kuo. Licensed under MIT.
 
 ***
 
