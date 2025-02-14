@@ -6,30 +6,24 @@ const getMsOfYear = (ceYear: number): number =>
 
 export function calcAge(birthday: Date): number {
   const now = new Date(),
-    thisYear = now.getUTCFullYear()
+    thisYear = now.getUTCFullYear(),
+    birthYear = birthday.getUTCFullYear()
 
-  const birthYear = birthday.getUTCFullYear()
-
-  const startOfThisYear = new Date(Date.UTC(thisYear, 0, 1, 0, 0, 0, 0))
-  const thisYearPassedMs = now.getTime() - startOfThisYear.getTime()
-  const thisYearTotalMs = getMsOfYear(thisYear)
-
-  const endOfBirthYear = new Date(Date.UTC(birthYear, 11, 31, 23, 59, 59, 999))
-  const birthYearLeftMs = endOfBirthYear.getTime() - birthday.getTime()
-  const birthYearTotalMs = getMsOfYear(birthYear)
-
-  const ageYears =
+  const age =
     // leftover days in the year of birth
-    birthYearLeftMs / birthYearTotalMs +
+    (+new Date(Date.UTC(birthYear, 11, 31, 23, 59, 59, 999)) -
+      birthday.getTime()) /
+      getMsOfYear(birthYear) +
     // passed years
     thisYear -
     (birthYear + 1) +
     // days from this year
-    thisYearPassedMs / thisYearTotalMs
+    (now.getTime() - +new Date(Date.UTC(thisYear, 0, 1, 0, 0, 0, 0))) /
+      getMsOfYear(thisYear)
 
   /*
    * Copyright (C) 2024, 2025, Yu-huan Kuo. Licensed under MIT.
    */
 
-  return ageYears
+  return age
 }
