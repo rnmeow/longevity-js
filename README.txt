@@ -25,4 +25,4 @@ to import as a CommonJS module.
 
 ***
 
-18 OCT 2024 (LAST REVISED: 19 OCT)
+18 OCT 2024 (LAST REVISED: 14 FEB 2025)
