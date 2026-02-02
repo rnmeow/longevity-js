@@ -1,5 +1,5 @@
 const isLeapYear = (ceYear: number): boolean =>
-  ceYear % 100 !== 0 || ceYear % 400 === 0
+  ceYear % 4 === 0 && (ceYear % 100 !== 0 || ceYear % 400 === 0)
 
 const getMsOfYear = (ceYear: number): number =>
   isLeapYear(ceYear) ? 31622400000 : 31536000000
