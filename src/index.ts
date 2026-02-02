@@ -11,12 +11,12 @@ export function calcAge(birthday: Date): number {
 
   const age =
     // leftover days in the year of birth
-    (Date.UTC(birthYear, 11, 31, 23, 59, 59, 999) - birthday.getTime()) /
+    (Date.UTC(birthYear, 11, 31, 23, 59, 59, 999) - +birthday) /
       getMsInYear(birthYear) +
     // passed years
     Math.max(0, curYear - birthYear - 1) +
     // days from this year
-    (now.getTime() - Date.UTC(curYear, 0, 1, 0, 0, 0, 0)) / getMsInYear(curYear)
+    (+now - Date.UTC(curYear, 0, 1, 0, 0, 0, 0)) / getMsInYear(curYear)
 
   /*
    * Copyright (C) 2024-2026, Yu-huan Kuo. Licensed under MIT.
