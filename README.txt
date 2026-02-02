@@ -21,8 +21,8 @@ to import as a CommonJS module.
 
 * License
 
-(C) 2024, 2025, Yu-huan Kuo. Licensed under MIT.
+(C) 2024-2026, Yu-huan Kuo. Licensed under MIT.
 
 ***
 
-18 OCT 2024 (LAST REVISED: 14 FEB 2025)
+18 OCT 2024 (LAST REVISED: 2 FEB 2026)

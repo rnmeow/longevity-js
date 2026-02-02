@@ -19,7 +19,7 @@ export function calcAge(birthday: Date): number {
     (now.getTime() - Date.UTC(curYear, 0, 1, 0, 0, 0, 0)) / getMsInYear(curYear)
 
   /*
-   * Copyright (C) 2024, 2025, Yu-huan Kuo. Licensed under MIT.
+   * Copyright (C) 2024-2026, Yu-huan Kuo. Licensed under MIT.
    */
 
   return age
