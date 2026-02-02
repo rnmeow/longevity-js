@@ -53,3 +53,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: longevity-js_${{ github.ref_name }}.tgz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
